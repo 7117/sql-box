@@ -13,5 +13,14 @@ select * from employees where not commission_pct <=> null;
 select * from employees where salary <=> 12000;
 select * from employees where salary = 12000;
 
-select * from employees where not job_id <=> 'IT' and salary = 12000;
+select * from employees where job_id like '%%' and salary = 12000;
+select * from employees where job_id != '%a%' and salary = 12000;
+select * from employees where job_id <=> 'SA_MAN' and salary = 12000;
+select * from employees where not(job_id <=> 'SA_MAN') and salary = 12000;
 
+create table departaaa (
+  depa int(4) not null primary key auto_increment,
+  dename varchar(11) default null
+)engine=innodb default charset=utf8;
+
+desc departaaa;
