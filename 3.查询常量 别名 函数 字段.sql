@@ -12,7 +12,7 @@ select "sss";
 select 100%99
 # 查询函数
 select version();
-# 别名  as与空格 加双引号或者单引号包括
+# 别名  as与空格 加双引号或者单引号包裹起来
 select 100%99 as aa;
 select 100%99 aa;
 select 100%99 'aa bb';
