@@ -4,3 +4,5 @@
 #方法三：/**/
 show databases ;
 
+
+select isnull(commission_pct),commission_pct from employees;
