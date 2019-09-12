@@ -13,3 +13,5 @@ select * from employees where not commission_pct <=> null;
 select * from employees where salary <=> 12000;
 select * from employees where salary = 12000;
 
+select * from employees where not job_id <=> 'IT' and salary = 12000;
+
