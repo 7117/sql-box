@@ -12,3 +12,6 @@ departments left join employees on
 departments.department_id=employees.department_id
 where employees.employee_id is null;
 
+select boys.*,beauty.* from beauty cross join boys;
+
+
