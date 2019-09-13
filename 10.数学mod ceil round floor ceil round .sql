@@ -15,3 +15,5 @@ select floor(1.2222);
 # select(a,b)  a-a/b*b
 select mod(10,3);
 
+--
+

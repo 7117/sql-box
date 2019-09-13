@@ -1,34 +1,34 @@
 use myemployees;
 
-select if(10>5,'¥Û','–°');
-select if(10<5,'¥Û','–°');
+select if(10>5,'Â§ß','Â∞è');
+select if(10<5,'Â§ß','Â∞è');
 
-select last_name,commission_pct,if(commission_pct is not null,'∂‘','¥Ì') from employees;
+select last_name,commission_pct,if(commission_pct is not null,'ÂØπ','Èîô') from employees;
 # switch
-select salary ‘≠π§◊ ,last_name,department_id,case department_id
+select salary ÂéüÂ∑•ËµÑ,last_name,department_id,case department_id
 when 30 then salary*2
 when 40 then salary*4
-else salary*5 end as –¬π§◊ 
+else salary*5 end as Êñ∞Â∑•ËµÑ
 from employees;
 # if else
-select salary ‘≠π§◊ ,last_name,department_id,case
+select salary ÂéüÂ∑•ËµÑ,last_name,department_id,case
 when salary>15000 then salary=0
 when salary<15000 then salary*4
-else salary=10000 end as –¬π§◊ 
+else salary=10000 end as Êñ∞Â∑•ËµÑ
 from employees;
 
-select concat('aaa','’“¡À',salary*3) from employees;
+select concat('aaa','Êâæ‰∫Ü',salary*3) from employees;
 
 
 select job_id,case job_id
 when 'AD_PRES' then "A"
 when 'ST_MAN' then "B"
 else "C"
-end as µ»º∂
+end as Á≠âÁ∫ß
 from employees;
 --
--- ◊÷∑˚∫Ø ˝£∫
--- 	length:ªÒ»°◊÷Ω⁄∏ˆ ˝(utf-8“ª∏ˆ∫∫◊÷¥˙±Ì3∏ˆ◊÷Ω⁄,gbkŒ™2∏ˆ◊÷Ω⁄)
+-- Â≠óÁ¨¶ÂáΩÊï∞Ôºö
+-- 	length:Ëé∑ÂèñÂ≠óËäÇ‰∏™Êï∞(utf-8‰∏Ä‰∏™Ê±âÂ≠ó‰ª£Ë°®3‰∏™Â≠óËäÇ,gbk‰∏∫2‰∏™Â≠óËäÇ)
 -- 	concat
 -- 	substr
 -- 	instr
@@ -39,14 +39,14 @@ from employees;
 -- 	rpad
 -- 	replace
 --
--- 	 ˝—ß∫Ø ˝£∫
+-- 	Êï∞Â≠¶ÂáΩÊï∞Ôºö
 -- 	round
 -- 	ceil
 -- 	floor
 -- 	truncate
 -- 	mod
 --
--- 	»’∆⁄∫Ø ˝£∫
+-- 	Êó•ÊúüÂáΩÊï∞Ôºö
 -- 	now
 -- 	curdate
 -- 	curtime
@@ -59,10 +59,10 @@ from employees;
 -- 	second
 -- 	str_to_date
 -- 	date_format
--- 	∆‰À˚∫Ø ˝£∫
+-- 	ÂÖ∂‰ªñÂáΩÊï∞Ôºö
 -- 	version
 -- 	database
 -- 	user
--- 	øÿ÷∆∫Ø ˝
+-- 	ÊéßÂà∂ÂáΩÊï∞
 -- 	if
 -- 	case
