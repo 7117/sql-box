@@ -17,6 +17,8 @@ when salary<15000 then salary*4
 else salary=10000 end as 新工资
 from employees;
 
+select concat('aaa','找了',salary*3) from employees;
+
 --
 -- 字符函数：
 -- 	length:获取字节个数(utf-8一个汉字代表3个字节,gbk为2个字节)
