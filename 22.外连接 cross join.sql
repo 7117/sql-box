@@ -12,15 +12,8 @@ departments left join employees on
 departments.department_id=employees.department_id
 where employees.employee_id is null;
 
+-- 笛卡尔积
 select boys.*,beauty.* from beauty cross join boys;
-
---#一、查询编号>3的女神的男朋友信息，如果有则列出详细，如果没有，用null填充
---#二、查询哪个城市没有部门
---#三、查询部门名为SAL或IT的员工信息
-
-select boyname,name from beauty left join boys
-on beauty.boyfriend_id=boys.id
-where beauty.id>3;
 
 -- 以下是练习题目
 select database();
