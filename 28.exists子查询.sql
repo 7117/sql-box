@@ -1,11 +1,8 @@
--- 返回1或0  判断bool
-SELECT EXISTS(SELECT employee_id FROM employees WHERE salary=300000);
-
-#案例2：查询没有女朋友的男神信息
+-- # 完全可以使用in代替exists
+-- #案例：查询没有女朋友的男神信息
 select boyName from boys where id not in (
   select boyfriend_id from beauty
-  );
-#案例2：查询没有女朋友的男神信息
+);
 SELECT boys.*
 FROM boys
 WHERE NOT EXISTS(
@@ -13,4 +10,15 @@ WHERE NOT EXISTS(
     FROM beauty b
     WHERE boys.`id`=b.`boyfriend_id`
 
-  );
+);
+
+
+-- #案例 查询有员工的部门名
+select department_name from departments where department_id in (
+  select department_id from employees where employees.department_id is not null
+);
+SELECT department_name
+FROM departments d
+WHERE EXISTS(
+          SELECT * FROM employees e WHERE d.`department_id`=e.`department_id`
+        );
