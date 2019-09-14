@@ -21,3 +21,5 @@ having min(salary) > (
   select min(salary) from employees where department_id=50
 );
 
+
+-- # 标识
