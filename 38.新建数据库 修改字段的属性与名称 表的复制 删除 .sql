@@ -10,11 +10,13 @@ create table aa(
 # 修改属性用modify  modify只能修改属性
 # 添加列用add
 # 删除列用drop
+# 表重命名用rename to
 desc aa;
 alter table aa change column id uid varchar(20);
 alter table aa modify column uid int(11);
 alter table aa add column sex varchar(11);
 alter table aa drop column sex;
+alter table ee rename to gg;
 
 # 删除表
 drop table if exists beauty_copy;
