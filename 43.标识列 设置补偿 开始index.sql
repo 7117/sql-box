@@ -9,6 +9,7 @@ create table qq(
      address varchar(50) default '中国',
      photo varchar(50) not null
 );
-
+desc qq;
 insert into qq (id,name,photo) values(null,'joss','');
 select * from qq;
+alter table qq modify id int(11);
