@@ -1,8 +1,11 @@
-create or replace view viewaa
-as
-select last_name,first_name from employees;
-select * from viewaa;
-select * from employees;
-insert into viewaa values ('aaaa','aaaaa');
-update viewaa set last_name='vvvvv' where last_name='aaaa';
-delete from viewaa where last_name='vvvvv';
+-- # 系统的包括全局与session 查询所有的 查询和要求的  查询某一个  设置变量值
+-- # 全局的
+show global variables ;
+show global variables like '%char%';
+select @@global.character_set_client;
+set character_set_client = 'utf8';
+-- # session的
+show session variables;
+show session variables like '%char%';
+select @@session.character_set_client;
+set session character_set_client = 'utf8';
