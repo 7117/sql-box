@@ -14,3 +14,4 @@ insert into qq (id,name,photo) values(null,'joss','');
 select * from qq;
 alter table qq modify id int(11);
 alter table qq drop primary key;
+
