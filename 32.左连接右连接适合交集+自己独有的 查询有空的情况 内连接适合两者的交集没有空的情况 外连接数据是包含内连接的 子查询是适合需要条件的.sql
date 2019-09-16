@@ -10,7 +10,7 @@ select department_id from employees group by department_id having avg(salary)=(
   select avg(salary) as avgsalary from employees group by department_id
   ) as temp
 );
--- 
+--
 
 select * from employees where department_id=(
   select department_id from employees group by department_id having avg(salary)=(
