@@ -4,6 +4,7 @@ begin
   set a=a*2;
   set b=b*2;
 end;
+
 set @m=10;
 set @n=20;
 call ac(@m,@n);
