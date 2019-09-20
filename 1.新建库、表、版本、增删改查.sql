@@ -11,6 +11,8 @@ create table useinfo(
                       `name` varchar(20)
 );
 
+
+
 show tables;
 
 desc useinfo;
