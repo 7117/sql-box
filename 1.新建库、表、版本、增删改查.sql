@@ -15,6 +15,7 @@ create table useinfo(
 
 
 
+
 show tables;
 
 desc useinfo;
