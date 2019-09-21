@@ -1,21 +1,14 @@
 show databases;
 
 use sqlcollection;
-# 查看当前数据库
+-- # 查看当前数据库
 select database();
-
 show tables;
 
 create table useinfo(
                       `id` int,
                       `name` varchar(20)
 );
-
-
-
-
-
-
 show tables;
 
 desc useinfo;
