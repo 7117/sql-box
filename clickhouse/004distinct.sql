@@ -1,0 +1,1 @@
+ SELECT DISTINCT s FROM nested_test ORDER BY s ASC;
