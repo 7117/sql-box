@@ -1,3 +1,15 @@
+create table t_order_mt1
+(
+    id           UInt32,
+    sku_id       String,
+    total_amount Decimal(16, 2),
+    create_time  DateTime
+) engine = MergeTree
+      partition by toYYYYMMDD(create_time)
+      primary key (id)
+order by (id,sku_id);
+
+
 create table t_order_rmt
 (
     id           UInt32,
@@ -30,3 +42,14 @@ from t_order_rmt;
 -- ➢ 只有同一批插入（新版本）或合并分区时才会进行去重
 -- ➢ 认定重复的数据保留，版本字段值最大的
 -- ➢ 如果版本字段相同则按插入顺序保留最后一笔
+
+create table default.cka
+(
+    id           UInt32,
+    sku_id       String,
+    total_amount Decimal(16, 2),
+    create_time  DateTime
+) engine = MergeTree()
+      partition by toYYYYMMDD(create_time)
+      primary key (id)
+      order by (id, sku_id)
