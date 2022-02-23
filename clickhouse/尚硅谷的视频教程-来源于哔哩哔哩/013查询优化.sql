@@ -1,7 +1,42 @@
--- Prewhere 替代 where
+-- 单表
+-- 1Prewhere 替代 where
 -- ⚫ 使用常量表达式
 -- ⚫ 使用默认值为 alias 类型的字段
 -- ⚫ 包含了 arrayJOIN，globalIn，globalNotIn 或者 indexHint 的查询
 -- ⚫ select 查询的列字段和 where 的谓词相同
 -- ⚫ 使用了主键字段
+-- 2数据采样
+-- 3列裁剪与分区裁剪   限制列与分区
+-- 4orderby 结合 where、limit
+-- 5避免构建虚拟列
+-- 6uniqCombined 替代 distinct
+-- 7使用物化视图
+-- 8其他事项
+-- （1）查询熔断
+-- 为了避免因个别慢查询引起的服务雪崩的问题，除了可以为单个查询设置超时以外，还
+-- 可以配置周期熔断，在一个查询周期内，如果用户频繁进行慢查询操作超出规定阈值后将无
+-- 法继续进行查询操作。
+-- （2）关闭虚拟内存
+-- 物理内存和虚拟内存的数据交换，会导致查询变慢，资源允许的情况下关闭虚拟内存。 （3）配置 join_use_nulls
+-- 为每一个账户添加 join_use_nulls 配置，左表中的一条记录在右表中不存在，右表的相
+-- 应字段会返回该字段相应数据类型的默认值，而不是标准 SQL 中的 Null 值。
+-- （4）批量写入时先排序
+-- 批量写入数据时，必须控制每个批次的数据中涉及到的分区的数量，在写入之前最好对
+-- 需要导入的数据进行排序。无序的数据或者涉及的分区太多，会导致 ClickHouse 无法及时对
+-- 新导入的数据进行合并，从而影响查询性能。
+-- （5）关注 CPU
+-- cpu 一般在 50%左右会出现查询波动，达到 70%会出现大范围的查询超时，cpu 是最关
+-- 键的指标，要非常关注。
 
+-- 多表
+-- 1用 IN 代替 JOIN
+-- insert into hits_v2
+-- select a.* from hits_v1 a where a. CounterID in (select CounterID from visits_v1);
+-- #反例：使用 join
+-- insert into table hits_v2
+-- select a.* from hits_v1 a left join visits_v1 b on  a. CounterID=b.CounterID;
+-- 2大小表 JOIN 多表 join 时要满足小表在右的原则
+-- 3注意谓词下推（版本差异）
+-- 4分布式表使用 GLOBAL
+-- 5使用字典表
+-- 6提前过滤
